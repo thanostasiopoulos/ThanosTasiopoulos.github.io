@@ -6,43 +6,93 @@
 }
 
 body {
-  background: #020617;
+  background: #0b0f1a;
   color: #e5e7eb;
-  text-align: center;
-  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-.hero {
-  min-height: 100vh;
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(11, 15, 26, 0.95);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 15px 40px;
+  z-index: 100;
 }
 
-.name {
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar a:hover {
   color: #38bdf8;
 }
 
-.subtitle {
-  margin-top: 15px;
-  font-weight: 300;
-  opacity: 0.9;
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 10%;
 }
 
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text h1 span {
+  color: #38bdf8;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 10px 25px;
+  background: #38bdf8;
+  color: #020617;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid #38bdf8;
+  color: #38bdf8;
+}
+
+/* SECTIONS */
 .section {
-  padding: 70px 20px;
-  max-width: 900px;
-  margin: auto;
+  padding: 80px 10%;
 }
 
-.section h3 {
-  font-size: 28px;
+.section.dark {
+  background: #020617;
+}
+
+.section-title {
+  font-size: 32px;
   margin-bottom: 30px;
   color: #38bdf8;
 }
 
-.cards {
+/* GRID & CARDS */
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
@@ -50,38 +100,28 @@ body {
 
 .card {
   background: #0f172a;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
-  transition: transform 0.3s;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
 }
 
-.timeline {
-  text-align: left;
+/* TIMELINE */
+.timeline-item {
+  margin-bottom: 40px;
 }
 
-.item {
-  margin-bottom: 35px;
-}
-
-.item h4 {
+.timeline-item h3 {
   color: #38bdf8;
-}
-
-.item span {
-  font-size: 14px;
-  opacity: 0.7;
 }
 
 footer {
   padding: 30px;
+  text-align: center;
   opacity: 0.6;
-}
-
-a {
-  color: #38bdf8;
-  text-decoration: none;
 }
