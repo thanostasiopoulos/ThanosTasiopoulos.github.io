@@ -2,125 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Athanasios Tasiopoulos | Data & Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Hi, I'm <span class="name">Athanasios Tasiopoulos</span></h1>
-    <h2><span id="typed"></span></h2>
-    <p class="subtitle">
-      Turning raw data into strategic insights for global organizations
-    </p>
-  </section>
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+    <div class="logo">Portfolio</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- ABOUT -->
-  <section class="section">
-    <h3>About Me</h3>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h1>Hello, I'm <span>John Doe</span></h1>
+    <h2>Senior Data Analyst</h2>
     <p>
-      Senior Data Analyst with 10+ years of experience in SQL, data modeling,
-      and business intelligence. I specialize in building reporting solutions,
-      automating decision workflows, and translating complex datasets into
-      actionable insights.
+      Short intro text goes here. Describe who you are in one or two lines.
     </p>
-    <p>
-      I have worked in international environments at IKEA, supporting global
-      supply chain, customs, and compliance processes through data-driven solutions.
-    </p>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section">
-    <h3>Skills</h3>
-    <div class="cards">
-      <div class="card">Advanced SQL</div>
-      <div class="card">ETL & Pipeline Design</div>
-      <div class="card">Data Modeling</div>
-      <div class="card">Power BI</div>
-      <div class="card">QlikSense</div>
-      <div class="card">Python</div>
-      <div class="card">Git</div>
-      <div class="card">Agile / Scrum</div>
-      <div class="card">Data Storytelling</div>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn">Contact</a>
+      <a href="#" class="btn outline">Download CV</a>
     </div>
-  </section>
+  </div>
 
-  <!-- EXPERIENCE -->
-  <section class="section">
-    <h3>Experience</h3>
+  <div class="hero-img">
+    <img src="assets/profile.png" alt="profile">
+  </div>
+</section>
 
-    <div class="timeline">
-      <div class="item">
-        <h4>Process Development Leader</h4>
-        <span>IKEA Supply AG · Switzerland</span>
-        <p>
-          Designed data models and dashboards supporting Global Customs and Tax compliance.
-          Introduced free trade agreement strategies reducing costs and improving process efficiency.
-          Led agile initiatives and supported system implementations through requirements analysis
-          and impact assessments.
-        </p>
-      </div>
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2 class="section-title">About Me</h2>
+  <p class="section-text">
+    Dummy text. This section describes your background, experience,
+    and what kind of problems you enjoy solving.
+  </p>
+</section>
 
-      <div class="item">
-        <h4>Process Developer</h4>
-        <span>IKEA Supply AG · Switzerland</span>
-        <p>
-          Built interactive self-service dashboards, global KPIs, and compliance monitoring tools.
-          Introduced a self-audit program verifying 100% of customs declarations and improving accuracy.
-        </p>
-      </div>
+<!-- SKILLS -->
+<section id="skills" class="section dark">
+  <h2 class="section-title">Skills</h2>
 
-      <div class="item">
-        <h4>Solution Expert</h4>
-        <span>INTER IKEA Consultancy Services · Greece</span>
-        <p>
-          Developed BI solutions for supply chain and wholesale operations.
-          Created tools improving order management and free trade agreement utilization.
-        </p>
-      </div>
+  <div class="grid">
+    <div class="card">SQL</div>
+    <div class="card">Python</div>
+    <div class="card">Power BI</div>
+    <div class="card">ETL Pipelines</div>
+    <div class="card">Data Modeling</div>
+    <div class="card">Git</div>
+  </div>
+</section>
 
-      <div class="item">
-        <h4>Software Engineer</h4>
-        <span>CICICOM LTD · Greece</span>
-        <p>
-          Developed mobile applications and backend services.
-          Built web services connected to SQL Azure databases and maintained cloud infrastructure.
-        </p>
-      </div>
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <h2 class="section-title">Experience</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Job Title</h3>
+      <span>Company · Location · Dates</span>
+      <p>
+        Dummy description of responsibilities and achievements.
+      </p>
     </div>
-  </section>
 
-  <!-- CERTIFICATIONS -->
-  <section class="section">
-    <h3>Certifications</h3>
-    <div class="cards">
-      <div class="card">Microsoft Power BI Data Analyst</div>
-      <div class="card">Google Business Intelligence</div>
-      <div class="card">Six Sigma Green Belt</div>
+    <div class="timeline-item">
+      <h3>Job Title</h3>
+      <span>Company · Location · Dates</span>
+      <p>
+        Dummy description of responsibilities and achievements.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="section">
-    <h3>Contact</h3>
-    <p>📍 Basel, Switzerland</p>
-    <p>📧 thanos.tasiopoulos@gmail.com</p>
-    <p>
-      🔗 <a href="https://www.linkedin.com/in/thanos-tasiopoulos/" target="_blank">LinkedIn</a>
-    </p>
-  </section>
+<!-- CONTACT -->
+<section id="contact" class="section dark">
+  <h2 class="section-title">Contact</h2>
+  <p>Email: example@email.com</p>
+  <p>LinkedIn: linkedin.com/in/example</p>
+</section>
 
-  <footer>
-    <p>© 2026 Athanasios Tasiopoulos</p>
-  </footer>
+<footer>
+  <p>© 2026 Portfolio</p>
+</footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
