@@ -1,185 +1,1827 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Athanasios Portfolio</title>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="script.js"></script>
-  <link rel="script" href="script.js"/>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanos Tasiopoulos | Senior Data Analyst</title>
+    
+    <!-- SEO Meta Tags for Search Engines -->
+    <meta name="description" content="Thanos Tasiopoulos - Senior Data Analyst">
+    <meta name="keywords" content="Thanos Tasiopoulos, Thanos Tasiopoulos Portfolio, Thanos Tasiopoulos Developer, Thanos Tasiopoulos Senior Data Analyst, Thanos Tasiopoulos, Senior Data Analyst Portfolio, Python Developer, FastAPI Developer, Data Engineer">
+    <meta name="author" content="Thanos Tasiopoulos">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="GE-EL">
+    <meta name="geo.placename" content="Greece, Athens">
+    <link rel="canonical" href="https://thanostasiopoulos.github.io/">
+
+    <!-- Google Seach Console Verification -->
+    <meta name="google-site-verification" content="googlebdc2cad290d93ed1" />
+    
+   
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Thanos Tasiopoulos Portfolio">
+    <meta property="og:title" content="Thanos Tasiopoulos | Senior Data Analyst">
+    <meta property="og:description" content="Senior Data Analyst">
+    <meta property="og:url" content="https://thanostasiopoulos.github.io/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://github.com/thanostasiopoulos/ThanosTasiopoulos.github.io/blob/main/assets/profile.png">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:image:alt" content="Thanos Tasiopoulos - Senior Data Analyst">
+    
+    
+    <!-- Mobile Browser Theme Color - Makes status bar match website -->
+    <meta name="theme-color" content="#030303">
+    <meta name="theme-color" content="#030303" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#030303" media="(prefers-color-scheme: light)">
+    <!-- Apple/Safari Status Bar -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Thanos Tasiopoulos">
+    <!-- Microsoft/Edge -->
+    <meta name="msapplication-navbutton-color" content="#030303">
+    <meta name="msapplication-TileColor" content="#030303">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" as="style">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons - Defer loading -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- Cache Control Meta - 1 month expiry -->
+    <meta http-equiv="Cache-Control" content="max-age=2592000, must-revalidate">
+    
+    <!-- Site Version for Cache Invalidation -->
+    <meta name="version" content="1.0.0">
+
+    <style>
+        :root {
+            --spotlight-size: 400px;
+            --spotlight-color: rgba(59, 130, 246, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030303;
+            cursor: default;
+            overflow-x: hidden;
+        }
+        
+        /* Hide sections initially for scroll-triggered loading */
+        .lazy-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .lazy-section.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered animation for cards/items inside sections */
+        .lazy-section.loaded .spotlight-card,
+        .lazy-section.loaded .grid > div {
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: calc(var(--stagger, 0) * 0.1s);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Spotlight Effect */
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+            background: rgba(20, 20, 22, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                var(--spotlight-size) circle at var(--mouse-x) var(--mouse-y),
+                var(--spotlight-color),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        .spotlight-card.hover-effect:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(30, 58, 138, 0.1);
+        }
+
+        /* Animated Grid Background */
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.1), transparent);
+            animation: scanline 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* Hero 3D Animation Styles */
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+        }
+        @keyframes orbit-reverse {
+            0% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+            100% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+        }
+        @keyframes orbit-slow {
+            0% { transform: rotate(0deg) translateX(155px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(155px) rotate(-360deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(59, 130, 246, 0.5); }
+        }
+        @keyframes float-code {
+            0%, 100% { transform: translateY(0) rotateX(10deg) rotateY(-10deg); }
+            50% { transform: translateY(-15px) rotateX(10deg) rotateY(-10deg); }
+        }
+        @keyframes float-code-2 {
+            0%, 100% { transform: translateY(0) rotateX(-5deg) rotateY(15deg); }
+            50% { transform: translateY(-20px) rotateX(-5deg) rotateY(15deg); }
+        }
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+            50% { transform: translateY(-10px) translateX(-5px); opacity: 0.5; }
+            75% { transform: translateY(-30px) translateX(15px); opacity: 0.9; }
+        }
+
+        
+        .orbit-item {
+            animation: orbit 12s linear infinite;
+        }
+        .orbit-item-reverse {
+            animation: orbit-reverse 10s linear infinite;
+        }
+        .orbit-item-slow {
+            animation: orbit-slow 18s linear infinite;
+        }
+        .float-code {
+            animation: float-code 4s ease-in-out infinite;
+        }
+        .float-code-2 {
+            animation: float-code-2 5s ease-in-out infinite;
+        }
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        .hero-particle {
+            animation: particle-float 6s ease-in-out infinite;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 50%, #F472B6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Custom Scrollbar - Global Futuristic Design with Fade Effect */
+        /* Webkit browsers (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+            border-left: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, 
+                rgba(59, 130, 246, 0.4) 0%, 
+                rgba(139, 92, 246, 0.5) 50%, 
+                rgba(59, 130, 246, 0.4) 100%);
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 
+                inset 0 0 6px rgba(59, 130, 246, 0.3),
+                0 0 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, 
+                rgba(59, 130, 246, 0.6) 0%, 
+                rgba(139, 92, 246, 0.7) 50%, 
+                rgba(59, 130, 246, 0.6) 100%);
+            box-shadow: 
+                inset 0 0 8px rgba(59, 130, 246, 0.5),
+                0 0 15px rgba(59, 130, 246, 0.4),
+                0 0 25px rgba(139, 92, 246, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(180deg, 
+                rgba(59, 130, 246, 0.8) 0%, 
+                rgba(139, 92, 246, 0.9) 50%, 
+                rgba(59, 130, 246, 0.8) 100%);
+        }
+        
+        ::-webkit-scrollbar-corner {
+            background: #0a0a0a;
+        }
+        
+        /* Firefox scrollbar */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(59, 130, 246, 0.5) #0a0a0a;
+        }
+        
+        /* Scrollbar fade effect - hidden by default, shows on scroll */
+        body::-webkit-scrollbar-thumb {
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+        
+        body.is-scrolling::-webkit-scrollbar-thumb {
+            opacity: 1;
+        }
+        
+        /* Alternative: Use overlay scrollbar that fades */
+        html {
+            overflow-y: scroll;
+        }
+        
+        body {
+            --scrollbar-opacity: 0.2;
+        }
+        
+        body.is-scrolling {
+            --scrollbar-opacity: 1;
+        }
+        
+        body::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, 
+                rgba(59, 130, 246, calc(0.4 * var(--scrollbar-opacity))) 0%, 
+                rgba(139, 92, 246, calc(0.5 * var(--scrollbar-opacity))) 50%, 
+                rgba(59, 130, 246, calc(0.4 * var(--scrollbar-opacity))) 100%);
+            box-shadow: 
+                inset 0 0 6px rgba(59, 130, 246, calc(0.3 * var(--scrollbar-opacity))),
+                0 0 8px rgba(59, 130, 246, calc(0.2 * var(--scrollbar-opacity)));
+        }
+        
+        body::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, 
+                rgba(10, 10, 10, var(--scrollbar-opacity)) 0%, 
+                rgba(17, 17, 17, var(--scrollbar-opacity)) 50%, 
+                rgba(10, 10, 10, var(--scrollbar-opacity)) 100%);
+            border-left: 1px solid rgba(59, 130, 246, calc(0.1 * var(--scrollbar-opacity)));
+        }
+        
+
+    </style>
 </head>
+<body class="text-gray-400 font-sans selection:bg-blue-500/30 selection:text-blue-200">
 
-<body>
-
-<!-- NAVBAR -->
-<header>
-  <nav class="navbar">
-    <div class="logo"></div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-img">
-    <img src="assets/profile.png" alt="profile">
-  </div>
-  <div class="hero-text">
-    <h1>Hello, I'm <span>Athanasios Tasiopoulos</span></h1>
-    <h2 >Senior Data Analyst</h2>
-    <h2 id="typed">Senior Data Analyst</h2>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Contact</a>
-      <a href="#" class="btn outline">Download CV</a>
-    </div>
-  </div>
-
-
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2 class="section-title">About Me</h2>
-  <p class="section-text">
-    Senior Data Analyst with over a decade of experience in advanced SQL and data analytics. Proficient in leveraging BI platforms such as QlikSense and Power BI to design and deliver impactful reporting solutions. Adept at translating complex datasets into actionable insights that guide strategic decisions. Proven ability to streamline processes through automation and drive business growth by combining technical expertise with strong business acumen.
-  </p>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="section dark">
-  <h2 class="section-title">Skills</h2>
-
-  <div class="grid">
-    <div class="card">SQL</div>
-    <div class="card">ETL / ELT</div>
-    <div class="card">Pipelines design and development</div>
-    <div class="card">Data modeling</div>
-    <div class="card">Critical thinking</div>
-    <div class="card">Forecsting and trend analysis</div>
-    <div class="card">Git storytelling and reporting</div>
-    <div class="card">Agile (Scrum/Kanban)</div>
-    <div class="card">Power BI</div>
-    <div class="card">QlikSense</div>
-    <div class="card">C#</div>
-    <div class="card">Python</div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="section">
-  <h2 class="section-title">Experience</h2>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>Process Development Leader</h3>
-      <span>IKEA Supply AG (Pratteln, CH) - 03/2022 - 09/2024</span>
-      <ul>
-        <li>
-          Improved decision-making and compliance by designing data models that answered important questions for Global Customs.
-        </li>
-        <li>
-          Introduced a free trade agreement strategy, reducing costs and streamlining international trade processes.
-        </li>
-        <li>
-          Led various agile projects as project owner and contributed in various systems implementation projects with business requirements and impact analysis.
-        </li>
-        <li>
-          Created complex reporting solutions and tools to improve processes and support audits from Customs and Tax authorities.
-        </li>
-        <li>
-          Led the business capability mapping for global customs, identifying critical connections with processes and systems.
-        </li>
-      </ul>
+    <!-- Profile Photo Modal -->
+    <div id="profilePhotoModal" class="fixed inset-0 z-[200] bg-black/80 backdrop-blur-md flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300" onclick="hideProfilePhoto()">
+        <div class="flex flex-col items-center transform scale-75 opacity-0 transition-all duration-300" id="profilePhotoContainer">
+            <!-- Photo Container with Glow -->
+            <div class="relative">
+                <!-- Glow Effect -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-2xl opacity-50 animate-pulse"></div>
+                <!-- Large Profile Picture -->
+                <div class="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl">
+                    <img src="assets/profile.png" alt="Thanos Tasiopoulos" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <!-- Name Badge - Below Photo -->
+            <div class="mt-6 px-6 py-2.5 bg-black/80 backdrop-blur-sm rounded-full border border-white/20 shadow-lg">
+                <span class="text-white font-bold text-base sm:text-lg md:text-xl">Thanos Tasiopoulos - Senior Data Analyst</span>
+            </div>
+        </div>
     </div>
 
-    <div class="timeline-item">
-      <h3>Process Developer</h3>
-      <span>IKEA Supply AG (Pratteln, CH) - 06/2018 - 02/2022</span>
-      <ul>
-        <li>
-          Developed tools to support single window requirements during import and export processes, streamlining operations and improving efficiency.
-        </li>
-        <li>
-          Created and maintained interactive dashboards for self-service analysis, empowering stakeholders with real-time data insights.
-        </li>
-        <li>
-          Introduced a self-audit program that significantly increased compliance by verifying and flagging 100% of customs declarations.  
-        </li>
-        <li>
-          Created complex reporting solutions and tools to improve processes and support audits from Customs and Tax authorities.
-        </li>
-        <li>
-          Established global statistics and key performance indicators (KPIs) for the organization, standardizing metrics to improve performance tracking and reporting. 
-        </li>
-      </ul>
+    
+
+    <!-- Background Ambience -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 grid-bg opacity-30"></div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] animate-pulse"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] animate-pulse delay-1000"></div>
     </div>
 
-    <div class="timeline-item">
-      <h3>Solution Expert</h3>
-      <span>INTER IKEA Consultancy Services Greece SA (Athens, GR) - 10/2016 - 05/2018</span>
-      <ul>
-        <li>
-          Supported supply chain processes with business intelligence and tailor-made solutions for wholesale and distribution entities.  
-        </li>
-        <li>
-          Developed tools to improve the order management process, enhancing efficiency and accuracy in order fulfillment.
-        </li>
-        <li>
-          Created solutions to capture free trade agreements, reducing customs duties and optimizing cost savings for the company.  
-        </li>
-      </ul>
+    <!-- Navigation -->
+    <nav class="fixed top-0 inset-x-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="relative flex items-center justify-between px-6 py-3 rounded-2xl bg-black/60 backdrop-blur-2xl border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer group" onclick="scrollToSection('home')">
+                    <div class="relative" onclick="event.stopPropagation(); showProfilePhoto();">
+                        <!-- Glow Effect -->
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <!-- Profile Picture -->
+                        <div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white/20 group-hover:border-blue-400/50 transition-colors">
+                            <img src="assets/profile.png" alt="Thanos Tasiopoulos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                        <!-- Online Status -->
+                        <div class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-black flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 bg-green-300 rounded-full animate-ping absolute"></span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-bold text-lg leading-tight tracking-tight">Thanos Tasiopoulos</span>
+                        <span class="text-xs font-mono text-blue-400 leading-tight">Senior Data Analyst</span>
+                    </div>
+                </div>
+
+                <!-- Center Nav Links -->
+                <div class="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+                    <button onclick="scrollToSection('home')" class="nav-link relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors group" data-section="home">
+                        <span class="relative z-10">Home</span>
+                        <span class="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/5 transition-colors"></span>
+                    </button>
+                    <button onclick="scrollToSection('experience')" class="nav-link relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors group" data-section="work">
+                        <span class="relative z-10">Experience</span>
+                        <span class="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/5 transition-colors"></span>
+                    </button>
+                    <button onclick="scrollToSection('skills')" class="nav-link relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors group" data-section="stack">
+                        <span class="relative z-10">Skills</span>
+                        <span class="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/5 transition-colors"></span>
+                    </button>
+                    <button onclick="scrollToSection('education')" class="nav-link relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors group" data-section="education">
+                        <span class="relative z-10">Education</span>
+                        <span class="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/5 transition-colors"></span>
+                    </button>
+                    <button onclick="scrollToSection('certifications')" class="nav-link relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors group" data-section="certifications">
+                        <span class="relative z-10">Certifications</span>
+                        <span class="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/5 transition-colors"></span>
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="nav-link relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors group" data-section="contact">
+                        <span class="relative z-10">Contact</span>
+                        <span class="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/5 transition-colors"></span>
+                    </button>
+                </div>
+
+                <!-- Right Side -->
+                <div class="flex items-center gap-3">
+                    <a href="mailto:thanos.tasiopoulos@gmail.com" class="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(99,102,241,0.4)]">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        Hire Me
+                    </a>
+                    
+                    <button class="md:hidden text-gray-400 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors" onclick="toggleMobileMenu()">
+                        <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl h-screen hidden flex-col justify-center items-center transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div class="flex flex-col gap-8 text-center">
+            <button onclick="scrollToSection('home')" class="text-3xl font-bold text-white hover:text-blue-400">Home</button>
+            <button onclick="scrollToSection('work')" class="text-3xl font-bold text-white hover:text-blue-400">Experience</button>
+            
+            <button onclick="scrollToSection('stack')" class="text-3xl font-bold text-white hover:text-blue-400">Skills</button>
+            <button onclick="scrollToSection('education')" class="text-3xl font-bold text-white hover:text-blue-400">Education</button>
+            <button onclick="scrollToSection('certifications')" class="text-3xl font-bold text-white hover:text-blue-400">Certifications</button>
+            <button onclick="scrollToSection('contact')" class="text-3xl font-bold text-white hover:text-blue-400">Contact</button>
+            <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+        </div>
     </div>
 
-    <div class="timeline-item">
-      <h3>Software Engineer</h3>
-      <span>CICICOM LTD (Athens, GR) - 12/2015 - 9/2016</span>
-      <ul>
-        <li>
-          Developed native mobile applications for IOS and Android based on customer needs. 
-        </li>
-        <li>
-          Created web services to interact with SQL Azure databases.
-        </li>
-        <li>
-          Maintained cloud servers on MS Azure.
-        </li>
-      </ul>
+    <main class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-24 pb-20">
+        
+        <!-- HERO SECTION -->
+        <section id="home" class="min-h-[calc(100vh-120px)] flex flex-col justify-center relative lazy-section loaded">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-6 flex-grow py-6">
+            
+            <!-- Left Content -->
+            <div class="max-w-2xl flex flex-col justify-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-300 text-xs font-mono mb-6 animate-fade-in-up w-fit">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                    OPEN TO WORK
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter leading-[1.1] mb-6 animate-float">
+                    From Raw Data to<br />
+                    <span class="text-gradient">Strategic Insights</span>
+                </h1>
+                <div class="text-base md:text-xl text-gray-400 max-w-2xl leading-relaxed mb-8">
+                <span class="text-white font-bold font-large">Senior Data Analyst | MSc in Information Systems | Advanced Analytics | Data Visualization | Business Intelligence</span>
+                </div>
+
+                <div class="text-base md:text-xl text-gray-400 max-w-2xl leading-relaxed mb-8">
+                    I'm 
+                    <span class="text-white font-bold font-large">Thanos Tasiopoulos</span>
+                    Senior Data Analyst with over a decade of experience in advanced SQL and data analysis. Proficient in leveraging BI platforms such as 
+                    <span class="text-white font-medium">QlikSense and Power BI.</span> 
+                    Expert in designing and building 
+                    <span class="block sm:inline text-blue-400 font-mono">
+                        <span id="typewriter"></span><span class="cursor-blink">|</span>
+                    </span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-3 w-full sm:w-auto items-center">
+                    <button onclick="scrollToSection('work')" class="px-6 py-3 bg-white text-black font-bold rounded-xl hover:scale-105 transition-transform flex items-center justify-center gap-2 text-center text-sm">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                        View Experience
+                    </button>
+                    <button onclick="downloadCV()" class="px-6 py-3 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-colors flex items-center justify-center gap-2 backdrop-blur-md text-center text-sm">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        Download Resume
+                    </button>
+
+                </div>
+            </div>
+            
+            <!-- Right Side - Animated Visualization (Only on XL screens 1280px+) -->
+            <div class="hidden xl:flex items-center justify-center relative w-[400px] h-[400px] flex-shrink-0 scale-90 2xl:scale-100">
+                
+                <!-- Central Glowing Core -->
+                <div class="absolute w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 pulse-glow flex items-center justify-center z-20">
+                    <i data-lucide="code-2" class="w-8 h-8 text-white"></i>
+                </div>
+                
+                <!-- Orbit Ring 1 -->
+                <div class="absolute w-[180px] h-[180px] rounded-full border border-blue-500/20"></div>
+                
+                <!-- Orbit Ring 2 -->
+                <div class="absolute w-[260px] h-[260px] rounded-full border border-purple-500/15"></div>
+                
+                <!-- Orbit Ring 3 -->
+                <div class="absolute w-[340px] h-[340px] rounded-full border border-cyan-500/10"></div>
+                
+                <!-- Orbiting Tech Icons - Ring 1 (Inner - 3 icons) -->
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 border border-yellow-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6" alt="Python">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item" style="animation-delay: -4s;">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-6 h-6" alt="Java">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item" style="animation-delay: -8s;">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 border border-cyan-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="w-6 h-6" alt="TypeScript">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Orbiting Tech Icons - Ring 2 (Middle - 3 icons, reverse) -->
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item-reverse">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400/20 to-blue-500/20 border border-blue-400/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-5 h-5" alt="React">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item-reverse" style="animation-delay: -3.3s;">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-5 h-5" alt="Node.js">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item-reverse" style="animation-delay: -6.6s;">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 border border-purple-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <i data-lucide="brain" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Orbiting Tech Icons - Ring 3 (Outer - 4 icons, slow) -->
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item-slow">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 border border-orange-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="w-5 h-5" alt="MongoDB">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item-slow" style="animation-delay: -4.5s;">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-blue-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-5 h-5" alt="Docker">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item-slow" style="animation-delay: -9s;">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-pink-500/20 to-pink-600/20 border border-pink-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-5 h-5" alt="Git">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="absolute w-full h-full flex items-center justify-center">
+                    <div class="orbit-item-slow" style="animation-delay: -13.5s;">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500/20 to-sky-600/20 border border-sky-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="w-5 h-5" alt="PostgreSQL">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Floating Particles -->
+                <div class="absolute top-10 left-10 w-2 h-2 rounded-full bg-blue-400/60 hero-particle"></div>
+                <div class="absolute top-20 right-16 w-1.5 h-1.5 rounded-full bg-purple-400/60 hero-particle" style="animation-delay: -1s;"></div>
+                <div class="absolute bottom-16 left-20 w-2 h-2 rounded-full bg-cyan-400/60 hero-particle" style="animation-delay: -2s;"></div>
+                <div class="absolute bottom-10 right-10 w-1.5 h-1.5 rounded-full bg-green-400/60 hero-particle" style="animation-delay: -3s;"></div>
+                <div class="absolute top-32 left-6 w-1 h-1 rounded-full bg-yellow-400/60 hero-particle" style="animation-delay: -4s;"></div>
+                <div class="absolute bottom-32 right-6 w-1.5 h-1.5 rounded-full bg-pink-400/60 hero-particle" style="animation-delay: -3.5s;"></div>
+                
+                <!-- Glow Effects -->
+                <div class="absolute w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none translate-x-10 translate-y-10"></div>
+            </div>
+            
+            </div>
+        </section>
+
+        <!-- ROLES SECTION - Infinite Scroll Marquee -->
+        <section class="pt-8 md:pt-12 pb-2 relative">
+            <!-- Section Header -->
+            <div class="text-center mb-2 relative z-10">
+                <span class="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 text-[10px] md:text-xs font-mono mb-4 md:mb-5 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 font-semibold">SEEKING OPPORTUNITIES</span>
+                </span>
+                <h2 class="text-lg md:text-2xl font-bold text-white">Roles I'm Interested In</h2>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Full Width Marquee (Outside main container) -->
+    <div class="relative w-screen overflow-hidden -mt-4 mb-8">
+        <!-- Gradient Overlays for Fade Effect - Smaller on mobile -->
+        <div class="absolute left-0 top-0 bottom-0 w-8 md:w-40 bg-gradient-to-r from-[#030303] to-transparent z-20 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-8 md:w-40 bg-gradient-to-l from-[#030303] to-transparent z-20 pointer-events-none"></div>
+        
+        <!-- First Row - Scrolling Left (Role Cards) -->
+        <div class="flex mb-3 md:mb-4 marquee-left overflow-hidden">
+            <div class="flex gap-3 md:gap-6 animate-marquee-left whitespace-nowrap pr-3 md:pr-6">
+                <!-- Role Cards - Compact on mobile -->
+                <div class="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2.5 md:py-3.5 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 active:scale-95 md:hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/30 flex-shrink-0">
+                        <i data-lucide="code-2" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-semibold block text-xs md:text-sm">Senior Data Analyst</span>
+                    </div>
+                </div>
+                
+                <div class="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2.5 md:py-3.5 rounded-xl md:rounded-2xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 active:scale-95 md:hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30 flex-shrink-0">
+                        <i data-lucide="layers" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-semibold block text-xs md:text-sm">Senior Data Engineer</span>
+                    </div>
+                </div>
+                
+                <div class="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2.5 md:py-3.5 rounded-xl md:rounded-2xl bg-gradient-to-r from-emerald-500/10 to-green-500/10 border border-emerald-500/20 active:scale-95 md:hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-emerald-500 to-green-400 flex items-center justify-center shadow-lg shadow-emerald-500/30 flex-shrink-0">
+                        <i data-lucide="brain" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-semibold block text-xs md:text-sm">Senior Analyst</span>
+                    </div>
+                </div>
+                
+                <div class="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2.5 md:py-3.5 rounded-xl md:rounded-2xl bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 active:scale-95 md:hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/30 flex-shrink-0">
+                        <i data-lucide="layout" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-semibold block text-xs md:text-sm">Tech Lead</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Duplicate for seamless loop -->
+            <div class="flex gap-3 md:gap-6 animate-marquee-left whitespace-nowrap pr-3 md:pr-6" aria-hidden="true">
+                <div class="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2.5 md:py-3.5 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 active:scale-95 md:hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/30 flex-shrink-0">
+                        <i data-lucide="code-2" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-semibold block text-xs md:text-sm">Senior Data Analyst</span>
+                    </div>
+                </div>
+                
+                <div class="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2.5 md:py-3.5 rounded-xl md:rounded-2xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 active:scale-95 md:hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30 flex-shrink-0">
+                        <i data-lucide="layers" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-semibold block text-xs md:text-sm">Senior Data Engineer</span>
+                    </div>
+                </div>
+                
+                <div class="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2.5 md:py-3.5 rounded-xl md:rounded-2xl bg-gradient-to-r from-emerald-500/10 to-green-500/10 border border-emerald-500/20 active:scale-95 md:hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-emerald-500 to-green-400 flex items-center justify-center shadow-lg shadow-emerald-500/30 flex-shrink-0">
+                        <i data-lucide="brain" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-semibold block text-xs md:text-sm">Senior Analyst</span>
+                    </div>
+                </div>
+                
+                <div class="inline-flex items-center gap-2 md:gap-3 px-3 md:px-5 py-2.5 md:py-3.5 rounded-xl md:rounded-2xl bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 active:scale-95 md:hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/30 flex-shrink-0">
+                        <i data-lucide="layout" class="w-4 h-4 md:w-5 md:h-5 text-white"></i>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-white font-semibold block text-xs md:text-sm">Tech Lead</span>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        
+        <!-- Second Row - Scrolling Right (Tech Pills) - More compact on mobile -->
+        <div class="flex marquee-right overflow-hidden">
+            <div class="flex gap-2 md:gap-4 animate-marquee-right whitespace-nowrap pr-2 md:pr-4">
+                <!-- Tech Skill Tags with colored accents on mobile -->
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-blue-500/10 md:bg-white/5 border border-blue-500/30 md:border-white/10 text-blue-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 md:hidden"></span>Python
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-blue-500/10 md:bg-white/5 border border-blue-500/30 md:border-white/10 text-blue-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 md:hidden"></span>ELT / ELT
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-green-500/10 md:bg-white/5 border border-green-500/30 md:border-white/10 text-green-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 md:hidden"></span>QlikSense
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-yellow-500/10 md:bg-white/5 border border-yellow-500/30 md:border-white/10 text-yellow-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 md:hidden"></span>Power BI
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-yellow-500/10 md:bg-white/5 border border-yellow-500/30 md:border-white/10 text-yellow-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 md:hidden"></span>DAX
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-red-500/10 md:bg-white/5 border border-red-500/30 md:border-white/10 text-red-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-400 md:hidden"></span>Advanced SQL
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-red-500/10 md:bg-white/5 border border-red-500/30 md:border-white/10 text-red-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-400 md:hidden"></span>Data Modeling
+                </span>
+            </div>
+            
+            <!-- Duplicate for seamless loop -->
+            <div class="flex gap-2 md:gap-4 animate-marquee-right whitespace-nowrap pr-2 md:pr-4" aria-hidden="true">
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-blue-500/10 md:bg-white/5 border border-blue-500/30 md:border-white/10 text-blue-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 md:hidden"></span>Python
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-blue-500/10 md:bg-white/5 border border-blue-500/30 md:border-white/10 text-blue-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 md:hidden"></span>ELT / ELT
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-green-500/10 md:bg-white/5 border border-green-500/30 md:border-white/10 text-green-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 md:hidden"></span>QlikSense
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-yellow-500/10 md:bg-white/5 border border-yellow-500/30 md:border-white/10 text-yellow-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 md:hidden"></span>Power BI
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-yellow-500/10 md:bg-white/5 border border-yellow-500/30 md:border-white/10 text-yellow-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 md:hidden"></span>DAX
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-red-500/10 md:bg-white/5 border border-red-500/30 md:border-white/10 text-red-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-400 md:hidden"></span>Advanced SQL
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-red-500/10 md:bg-white/5 border border-red-500/30 md:border-white/10 text-red-400 md:text-gray-400 text-xs md:text-sm font-mono transition-all cursor-default">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-400 md:hidden"></span>Data Modeling
+                </span>
+            </div>
+        </div>
+        
+        <style>
+            @keyframes marquee-left {
+                from { transform: translateX(0); }
+                to { transform: translateX(-100%); }
+            }
+            @keyframes marquee-right {
+                from { transform: translateX(-100%); }
+                to { transform: translateX(0); }
+            }
+            /* Faster animation on mobile */
+            .animate-marquee-left {
+                animation: marquee-left 15s linear infinite;
+                display: flex;
+                gap: 0.75rem;
+            }
+            .animate-marquee-right {
+                animation: marquee-right 12s linear infinite;
+                display: flex;
+                gap: 0.5rem;
+            }
+            /* Slower on desktop */
+            @media (min-width: 768px) {
+                .animate-marquee-left {
+                    animation-duration: 22s;
+                    gap: 1.5rem;
+                }
+                .animate-marquee-right {
+                    animation-duration: 15s;
+                    gap: 1rem;
+                }
+            }
+            .marquee-left:hover .animate-marquee-left,
+            .marquee-right:hover .animate-marquee-right {
+                animation-play-state: paused;
+            }
+            /* Touch feedback on mobile */
+            @media (max-width: 767px) {
+                .marquee-left:active .animate-marquee-left,
+                .marquee-right:active .animate-marquee-right {
+                    animation-play-state: paused;
+                }
+            }
+        </style>
     </div>
-  </div>
-</section>
+    
+    <!-- Resume Main Content -->
+    <main class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20">
 
-<!-- CERTIFICATES -->
-<section id="certifications" class="section dark">
-  <h2 class="section-title">Certifications</h2>
+        <!-- WORK EXPERIENCE -->
+        <section id="experience" class="py-12 md:py-24 lazy-section">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="font-mono text-blue-500 text-lg">01.</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Experience</h2>
+                <div class="h-px bg-gray-800 flex-grow ml-4 max-w-xs hidden sm:block"></div>
+            </div>
+            
+            <!-- Tabbed Experience Layout -->
+            <div class="flex flex-col md:flex-row gap-0 md:gap-0">
+                
+                <!-- Left: Company Tabs -->
+                <div class="flex md:flex-col overflow-x-auto md:overflow-visible border-b md:border-b-0 md:border-l-2 border-gray-800 mb-6 md:mb-0 md:min-w-[200px]">
+                    <button onclick="switchJob(0)" id="job-tab-0" class="job-tab relative px-5 py-4 text-left font-mono text-sm whitespace-nowrap transition-all duration-300 text-blue-400 bg-blue-500/5 md:border-l-2 md:-ml-[2px] border-blue-400">
+                        <span class="hidden md:inline">IKEA Supply AG</span>
+                        <span class="md:hidden">IKEA Supply AG</span>
+                    </button>
+                    <button onclick="switchJob(1)" id="job-tab-1" class="job-tab relative px-5 py-4 text-left font-mono text-sm whitespace-nowrap transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/5 md:border-l-2 md:-ml-[2px] border-transparent">
+                        <span class="hidden md:inline">IKEA Supply AG</span>
+                        <span class="md:hidden">IKEA Supply AG</span>
+                    </button>
+                      <button onclick="switchJob(2)" id="job-tab-2" class="job-tab relative px-5 py-4 text-left font-mono text-sm whitespace-nowrap transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/5 md:border-l-2 md:-ml-[2px] border-transparent">
+                        <span class="hidden md:inline">INTER IKEA Consultancy Services Greece SA</span>
+                        <span class="md:hidden">INTER IKEA Consultancy Services Greece SA</span>
+                    </button>
+                    <button onclick="switchJob(3)" id="job-tab-3" class="job-tab relative px-5 py-4 text-left font-mono text-sm whitespace-nowrap transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/5 md:border-l-2 md:-ml-[2px] border-transparent">
+                        <span class="hidden md:inline">CICICOM LTD</span>
+                        <span class="md:hidden">CICICOM LTD</span>
+                    </button>
+                </div>
+                
+                <!-- Right: Job Details Panel -->
+                <div class="flex-1 md:pl-8">
+                    
+                    <!-- Job 1 - IKEA Supply AG -->
+                    <div id="job-panel-0" class="job-panel">
+                        <div class="mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-white">
+                                Process Development Leader
+                            </h3>
+                        </div>
+                        
+                        <div class="flex flex-wrap items-center gap-6 mb-6">
+                            <div class="flex items-center gap-2 text-gray-400 text-sm font-mono">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                Mar 2022 - Sep 2024
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400 text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Pratteln, Switzerland
+                            </div>
 
-  <div class="timeline">
-    <div class="timeline-item">
-      <p>Google: Business Intelligence, Introduction to Data Engineering on Google Cloud</p>
-      <p>Microsoft: PowerBI Data Analyst</p>
-      <p>Udemy: Six Sigma Green Belt</p>
-    </div>
-</div>
-</section>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Improved decision-making and compliance by designing data models that answered important questions for Global Customs.</span>
+                            </li>
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Introduced a free trade agreement strategy, reducing costs and streamlining international trade processes.</span>
+                            </li>
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Led various agile projects as project owner and contributed in various systems implementation projects with business requirements and impact analysis.</span>
+                            </li>
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Created complex reporting solutions and tools to improve processes and support audits from Customs and Tax authorities.</span>
+                            </li>
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Led the business capability mapping for global customs, identifying critical connections with processes and systems.</span>
+                            </li>
+                            
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">QlikSense</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Power BI</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">DAX</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">DataBricks</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Azure</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Python</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Airflow</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Cognos Analytics</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">VBA</span>
+                           
+                        </div>
+                    </div>
+                    
+                    <!-- Job 2 - IKEA Supply AG -->
+                    <div id="job-panel-1" class="job-panel hidden">
+                        <div class="mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-white">
+                                Process Developer
 
-<!-- CONTACT -->
-<section id="contact" class="section dark">
-  <h2 class="section-title">Contact</h2>
-  <p>Email: <a href="mailto:thanos.tasiopoulos@gmail.com">thanos.tasiopoulos@gmail.com </a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/thanos-tasiopoulos/">Thanos Tasiopoulos</a></p>
-</section>
+                            </h3>
+                        </div>
+                        
+                        <div class="flex flex-wrap items-center gap-6 mb-6">
+                            <div class="flex items-center gap-2 text-gray-400 text-sm font-mono">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                Jun 2018 - Feb 2022
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400 text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Pratteln, Switzerland
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Developed tools to support single window requirements during import and export processes, streamlining operations and improving efficiency.</span>
+                            </li>    
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Created and maintained interactive dashboards for self-service analysis, empowering stakeholders with real-time data insights.</span>
+                            </li>
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Introduced a self-audit program that significantly increased compliance by verifying and flagging 100% of customs declarations.</span>
+                            </li>   
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Established global statistics and key performance indicators (KPIs) for the organization, standardizing metrics to improve performance tracking and reporting.</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Cognos Analytics</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">QlikView</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Python</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">VBA</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Data Pipelines</span>
+                        </div>
+                    </div>
 
-<footer>
-  <p>© 2026 Portfolio</p>
-</footer>
+                    <!-- Job 3 - INTER IKEA Consultancy Services Greece SA  -->
+                    <div id="job-panel-2" class="job-panel hidden">
+                        <div class="mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-white">
+                                Solution Expert
+                            </h3>
+                        </div>
+                        
+                        <div class="flex flex-wrap items-center gap-6 mb-6">
+                            <div class="flex items-center gap-2 text-gray-400 text-sm font-mono">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                Oct 2016 - May 2018
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400 text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Athens, Greece
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Supported supply chain processes with business intelligence and tailor-made solutions for wholesale and distribution entities.</span>
+                            </li>    
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Developed tools to improve the order management process, enhancing efficiency and accuracy in order fulfillment.</span>
+                            </li>
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Created solutions to capture free trade agreements, reducing customs duties and optimizing cost savings for the company.</span>
+                            </li>   
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Cognos Analytics</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">QlikView</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Python</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">VBA</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Data Pipelines</span>
+                        </div>
+                    </div>
+
+                    <!-- Job 4 - CICICOM -->
+                    <div id="job-panel-3" class="job-panel hidden">
+                        <div class="mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-white">
+                                Software Engineer
+
+                            </h3>
+                        </div>
+                        
+                        <div class="flex flex-wrap items-center gap-6 mb-6">
+                            <div class="flex items-center gap-2 text-gray-400 text-sm font-mono">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                Dec 2015 - Sep 2016
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400 text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Athens, Greece
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Developed native mobile applications for IOS and Android based on customer needs.</span>
+                            </li>    
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Created web services to interact with SQL Azure databases.</span>
+                            </li>
+                            <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
+                                <span>Maintained cloud servers on MS Azure.</span>
+                            </li>   
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Microsoft Azure</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Swift</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Java</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">SQL</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">C#</span>
+                            <span class="px-3 py-1.5 text-xs font-mono rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Python</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
 
 
+
+        <!-- TECH STACK -->
+        <section id="skills" class="py-12 md:py-24">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="font-mono text-blue-500 text-lg">02.</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Skills</h2>
+                <div class="h-px bg-gray-800 flex-grow ml-4 max-w-xs hidden sm:block"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                
+                <!-- Languages -->
+                <div class="spotlight-card rounded-2xl p-6 group flex flex-col h-full" style="--spotlight-color: rgba(234, 179, 8, 0.15);">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2.5 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
+                            <i data-lucide="code-2" class="w-5 h-5 text-yellow-500"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Programming Languages</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 flex-grow">
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-yellow-500/30 hover:bg-yellow-500/5 transition-all duration-300 group/item cursor-default col-span-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="Java">
+                            <span class="text-gray-300 text-base font-medium">Java</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-yellow-500/30 hover:bg-yellow-500/5 transition-all duration-300 group/item cursor-default col-span-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="Python">
+                            <span class="text-gray-300 text-base font-medium">Python</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-yellow-500/30 hover:bg-yellow-500/5 transition-all duration-300 group/item cursor-default col-span-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="C">
+                            <span class="text-gray-300 text-base font-medium">C#</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="spotlight-card rounded-2xl p-6 group flex flex-col h-full" style="--spotlight-color: rgba(16, 185, 129, 0.15);">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2.5 rounded-xl bg-green-500/10 border border-green-500/20">
+                            <i data-lucide="database" class="w-5 h-5 text-green-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Databases</h3>
+                    </div>
+                    <div class="grid grid-cols-1 gap-3 flex-grow">
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-green-500/30 hover:bg-green-500/5 transition-all duration-300 group/item cursor-default">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="MySQL">
+                            <span class="text-gray-300 text-base font-medium">MySQL</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-green-500/30 hover:bg-green-500/5 transition-all duration-300 group/item cursor-default">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="PostgreSQL">
+                            <span class="text-gray-300 text-base font-medium">PostgreSQL</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-green-500/30 hover:bg-green-500/5 transition-all duration-300 group/item cursor-default">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="MongoDB">
+                            <span class="text-gray-300 text-base font-medium">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Tools -->
+                <div class="spotlight-card rounded-2xl p-6 group flex flex-col h-full" style="--spotlight-color: rgba(249, 115, 22, 0.15);">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20">
+                            <i data-lucide="wrench" class="w-5 h-5 text-orange-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Dev Tools</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 flex-grow">
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300 group/item cursor-default">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="Git">
+                            <span class="text-gray-300 text-base font-medium">Git</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300 group/item cursor-default">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform invert" alt="GitHub">
+                            <span class="text-gray-300 text-base font-medium">GitHub</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300 group/item cursor-default">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="Docker">
+                            <span class="text-gray-300 text-base font-medium">Docker</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300 group/item cursor-default">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="w-7 h-7 group-hover/item:scale-110 transition-transform" alt="VS Code">
+                            <span class="text-gray-300 text-base font-medium">VS Code</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300 group/item cursor-default">
+                            <i data-lucide="terminal" class="w-7 h-7 text-orange-400"></i>
+                            <span class="text-gray-300 text-base font-medium">Terminal</span>
+                        </div>
+                        <div class="skill-item flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300 group/item cursor-default">
+                            <i data-lucide="plug" class="w-7 h-7 text-orange-400"></i>
+                            <span class="text-gray-300 text-base font-medium">REST APIs</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Methodologies & Practices -->
+                <div class="spotlight-card rounded-2xl p-6 group flex flex-col h-full" style="--spotlight-color: rgba(239, 68, 68, 0.15);">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2.5 rounded-xl bg-red-500/10 border border-red-500/20">
+                            <i data-lucide="workflow" class="w-5 h-5 text-red-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Best Practices</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 flex-grow">
+                        <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 transition-all cursor-default group">
+                            <div class="w-7 h-7 rounded-md bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="layout" class="w-4 h-4 text-red-400"></i>
+                            </div>
+                            <span class="text-gray-300 text-base font-medium">Forecasting and trend analysis</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 transition-all cursor-default group">
+                            <div class="w-7 h-7 rounded-md bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="kanban" class="w-4 h-4 text-red-400"></i>
+                            </div>
+                            <span class="text-gray-300 text-base font-medium">Agile (Scrum/Kanban)</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 transition-all cursor-default group">
+                            <div class="w-7 h-7 rounded-md bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="refresh-cw" class="w-4 h-4 text-red-400"></i>
+                            </div>
+                            <span class="text-gray-300 text-base font-medium">Critical thinking</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 transition-all cursor-default group">
+                            <div class="w-7 h-7 rounded-md bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="lightbulb" class="w-4 h-4 text-red-400"></i>
+                            </div>
+                            <span class="text-gray-300 text-base font-medium">Problem Solving</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 transition-all cursor-default group">
+                            <div class="w-7 h-7 rounded-md bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="bug" class="w-4 h-4 text-red-400"></i>
+                            </div>
+                            <span class="text-gray-300 text-base font-medium">Debugging</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 transition-all cursor-default group">
+                            <div class="w-7 h-7 rounded-md bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="test-tube" class="w-4 h-4 text-red-400"></i>
+                            </div>
+                            <span class="text-gray-300 text-base font-medium">Testing</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 transition-all cursor-default group">
+                            <div class="w-7 h-7 rounded-md bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="rocket" class="w-4 h-4 text-red-400"></i>
+                            </div>
+                            <span class="text-gray-300 text-base font-medium">Deployment</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-red-500/30 hover:bg-red-500/5 transition-all cursor-default group">
+                            <div class="w-7 h-7 rounded-md bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="rocket" class="w-4 h-4 text-red-400"></i>
+                            </div>
+                            <span class="text-gray-300 text-base font-medium">Storytelling and Reporting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="py-12 md:py-24 lazy-section">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="font-mono text-blue-500 text-lg">03.</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Education</h2>
+                <div class="h-px bg-gray-800 flex-grow ml-4 max-w-xs hidden sm:block"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="spotlight-card hover-effect p-6 rounded-2xl border-t-4 border-blue-500 flex flex-col" style="--spotlight-color: rgba(59, 130, 246, 0.15);">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-blue-400"></i>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono">FEB 2021 - FEB 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Master of Science in Information Systems</h3>
+                    <p class="text-gray-400 text-sm mb-3">European University Cyprus</p>
+
+                </div>
+                <div class="spotlight-card hover-effect p-6 rounded-2xl border-t-4 border-blue-500 flex flex-col" style="--spotlight-color: rgba(59, 130, 246, 0.15);">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-blue-400"></i>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono">FEB 2008 - FEB 2014</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Bachelor in Computer Science</h3>
+                    <p class="text-gray-400 text-sm mb-3">Technological Educational Institute of Athens</p>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS & CERTIFICATIONS -->
+        <section id="certifications" class="py-12 md:py-24 lazy-section">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="font-mono text-blue-500 text-lg">04.</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Certifications</h2>
+                <div class="h-px bg-gray-800 flex-grow ml-4 max-w-xs hidden sm:block"></div>
+            </div>
+
+            
+            <!-- Certifications Grid -->
+            <div class="spotlight-card rounded-2xl p-6 md:p-8" style="--spotlight-color: rgba(59, 130, 246, 0.1);">
+                <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="badge-check" class="w-5 h-5 text-blue-400"></i>
+                    Professional Certifications
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Google -->
+                    <div class="group p-4 rounded-xl bg-blue-500/5 border border-blue-500/10 hover:border-blue-500/30 transition-all cursor-default flex flex-col h-full">
+                        <div class="text-blue-500 font-bold text-sm mb-1">Google</div>
+                        <div class="text-gray-400 text-xs flex-grow">Introduction to Data Engineering in Google Cloud</div>
+                    </div>
+                    <!-- Microsoft -->
+                    <div class="group p-4 rounded-xl bg-red-500/5 border border-red-500/10 hover:border-red-500/30 transition-all cursor-default flex flex-col h-full">
+                        <div class="text-red-500 font-bold text-sm mb-1">Microsoft</div>
+                        <div class="text-gray-400 text-xs flex-grow">Microsoft Power BI Data Analyst</div>
+                    </div>
+                    <!-- Google -->
+                    <div class="group p-4 rounded-xl bg-green-500/5 border border-green-500/10 hover:border-green-500/30 transition-all cursor-default flex flex-col h-full">
+                        <div class="text-green-500 font-bold text-sm mb-1">Google</div>
+                        <div class="text-gray-400 text-xs flex-grow">Business Intelligence</div>
+                    </div>
+                    <!-- Udemy -->
+                    <div class="group p-4 rounded-xl bg-orange-500/5 border border-orange-500/10 hover:border-orange-500/30 transition-all cursor-default flex flex-col h-full">
+                        <div class="text-orange-500 font-bold text-sm mb-1">Udemy</div>
+                        <div class="text-gray-400 text-xs flex-grow">Six sigma green belt</div>
+                    </div>
+                  
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivation Quote Section -->
+        <section class="py-8 md:py-12">
+            <div class="text-center max-w-3xl mx-auto px-4">
+                <div class="relative">
+                    <span class="text-6xl md:text-8xl text-blue-500/10 font-serif absolute -top-4 -left-2">"</span>
+                    <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed italic">
+                        Turn raw data into clarity, curiosity into insight, and insight into decisions that move the world.
+                    </p>
+                    <span class="text-6xl md:text-8xl text-blue-500/10 font-serif absolute -bottom-8 -right-2 rotate-180">"</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-12 md:py-24 lazy-section">
+            <!-- FOOTER -->
+            <footer class="relative rounded-3xl border-t border-white/10 bg-gradient-to-b from-black to-gray-950 pt-20 pb-8 overflow-hidden">
+                <!-- Background Effects -->
+                <div class="absolute top-0 left-1/4 w-[500px] h-[300px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+                <div class="absolute bottom-0 right-1/4 w-[400px] h-[200px] bg-purple-600/5 blur-[100px] rounded-full pointer-events-none"></div>
+                
+
+                
+                
+
+                <div class="relative rounded-3xl z-10 max-w-7xl mx-auto px-6 md:px-12">
+                    <!-- Main Footer Content -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                        
+                        <!-- Brand Section -->
+                        <div class="md:col-span-5">
+                            <div class="flex items-center gap-3 mb-6 cursor-pointer group" onclick="scrollToSection('home')">
+                                <div class="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 group-hover:bg-blue-500/20 transition-all">
+                                    <i data-lucide="terminal" class="w-6 h-6 text-blue-500"></i>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-white font-bold text-2xl tracking-tight">Thanos Tasiopoulos</span>
+                                    <span class="text-blue-400 text-xl font-mono">Senior Data Analyst</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Icons Row -->
+                            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                                <a href="https://www.linkedin.com/in/thanos-tasiopoulos/" target="_blank" class="p-2 sm:p-2.5 rounded-xl bg-[#0A66C2]/15 border border-[#0A66C2]/30 hover:bg-[#0A66C2]/25 hover:border-[#0A66C2]/60 hover:shadow-[0_0_20px_rgba(10,102,194,0.4)] transition-all duration-300 group">
+                                    <i data-lucide="linkedin" class="w-4 h-4 sm:w-5 sm:h-5 text-[#0A66C2] group-hover:text-[#0A66C2] transition-colors"></i>
+                                </a>
+                                <a href="https://github.com/thanostasiopoulos" target="_blank" class="p-2 sm:p-2.5 rounded-xl bg-[#6e5494]/15 border border-[#6e5494]/30 hover:bg-[#6e5494]/25 hover:border-[#6e5494]/60 hover:shadow-[0_0_20px_rgba(110,84,148,0.4)] transition-all duration-300 group">
+                                    <i data-lucide="github" class="w-4 h-4 sm:w-5 sm:h-5 text-[#c9d1d9] group-hover:text-white transition-colors"></i>
+                                </a>
+                                <a href="mailto:thanos.tasiopoulos@gmail.com" class="p-2 sm:p-2.5 rounded-xl bg-[#EA4335]/15 border border-[#EA4335]/30 hover:bg-[#EA4335]/25 hover:border-[#EA4335]/60 hover:shadow-[0_0_20px_rgba(234,67,53,0.4)] transition-all duration-300 group">
+                                    <i data-lucide="mail" class="w-4 h-4 sm:w-5 sm:h-5 text-[#EA4335] group-hover:text-[#EA4335] transition-colors"></i>
+                                </a>
+                            
+                            </div>
+                        </div>
+
+                    <!-- Bottom Bar -->
+                    <div class="pt-8 border-t border-white/5 md:col-span-12">
+                        <div class="flex justify-center items-center">
+                            <p class="text-gray-500 text-sm">
+                                &copy; 2026 <span class="text-white">Thanos Tasiopoulos</span>. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        
+        // Check if returning visitor (faster splash for cached resources)
+        function isReturningVisitor() {
+            const visited = localStorage.getItem('portfolioVisited');
+            if (!visited) {
+                localStorage.setItem('portfolioVisited', Date.now().toString());
+                return false;
+            }
+            return true;
+        }
+
+
+
+        // Progressive Section Loading & Icon Initialization
+        const sectionOrder = ['home', 'work', 'stack', 'education', 'certifications', 'contact'];
+        let sectionsLoaded = 0;
+        let iconsInitialized = false;
+
+        // Version-based cache & session management
+        const SiteCache = {
+            VERSION: '1.0.0',
+            EXPIRY_DAYS: 30,
+            
+            init() {
+                const storedVersion = localStorage.getItem('siteVersion');
+                const cacheTimestamp = localStorage.getItem('cacheTimestamp');
+                
+                // Check if version changed - clear everything
+                if (storedVersion && storedVersion !== this.VERSION) {
+                    console.log('Site updated to v' + this.VERSION + '! Clearing old data...');
+                    this.clearAll();
+                }
+                
+                // Check if cache expired (1 month)
+                if (cacheTimestamp) {
+                    const age = Date.now() - parseInt(cacheTimestamp);
+                    const expiryMs = this.EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+                    
+                    if (age > expiryMs) {
+                        console.log('Cache expired (>' + this.EXPIRY_DAYS + ' days), refreshing...');
+                        this.clearAll();
+                        // Force reload to get fresh resources from CDNs
+                        location.reload(true);
+                        return;
+                    }
+                }
+                
+                // Set/update version and timestamp
+                localStorage.setItem('siteVersion', this.VERSION);
+                if (!cacheTimestamp) {
+                    localStorage.setItem('cacheTimestamp', Date.now().toString());
+                }
+                
+                console.log('Site cache valid: v' + this.VERSION);
+            },
+            
+            clearAll() {
+                // Clear localStorage except essential items
+                const keysToKeep = ['lastFunFactIndex'];
+                const savedValues = {};
+                keysToKeep.forEach(key => {
+                    savedValues[key] = localStorage.getItem(key);
+                });
+                
+                localStorage.clear();
+                sessionStorage.clear();
+                
+                // Restore essential items
+                keysToKeep.forEach(key => {
+                    if (savedValues[key]) localStorage.setItem(key, savedValues[key]);
+                });
+                
+                // Clear Cache API if available
+                if ('caches' in window) {
+                    caches.keys().then(names => names.forEach(name => caches.delete(name)));
+                }
+            }
+        };
+        
+        // Initialize cache management
+        SiteCache.init();
+
+        // Initialize icons when Lucide is ready
+        function initIconsWhenReady() {
+            if (typeof lucide !== 'undefined' && !iconsInitialized) {
+                lucide.createIcons();
+                iconsInitialized = true;
+                // Cache that icons are loaded
+                sessionStorage.setItem('iconsLoaded', 'true');
+            } else if (!iconsInitialized) {
+                setTimeout(initIconsWhenReady, 50);
+            }
+        }
+
+        // Scroll-triggered fade-in animations using Intersection Observer
+        // Animates both on scroll down AND scroll up - always triggers
+        function initScrollAnimations() {
+            const sections = document.querySelectorAll('.lazy-section');
+            
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px 0px -50px 0px', // trigger 50px before entering viewport
+                threshold: 0.15 // trigger when 15% visible
+            };
+            
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Entering viewport - fade in
+                        entry.target.classList.add('loaded');
+                        
+                        // Add stagger delay to child elements
+                        const children = entry.target.querySelectorAll('.spotlight-card, .grid > div');
+                        children.forEach((child, index) => {
+                            child.style.setProperty('--stagger', index);
+                        });
+                        
+                        // Initialize icons for newly visible section
+                        if (typeof lucide !== 'undefined') {
+                            setTimeout(() => lucide.createIcons(), 100);
+                        }
+                    } else {
+                        // Leaving viewport - fade out (so it can fade in again)
+                        entry.target.classList.remove('loaded');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all lazy sections (keep observing always)
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        }
+
+        // Preload critical resources during splash screen
+        function preloadResources() {
+            // Check if resources are cached
+            const resourcesCached = sessionStorage.getItem('resourcesCached');
+            
+            if (!resourcesCached) {
+                // Preload images if any
+                const imagesToPreload = [];
+                imagesToPreload.forEach(src => {
+                    const img = new Image();
+                    img.src = src;
+                });
+                
+                sessionStorage.setItem('resourcesCached', 'true');
+            }
+            
+            // Initialize scroll-triggered animations
+            initScrollAnimations();
+            
+            // Initialize icons
+            initIconsWhenReady();
+        }
+
+        // Start preloading immediately
+        preloadResources();
+
+        // Sound Effect Setup
+        function playHoverSound() {
+            // Sound effect disabled
+        }
+
+        // Track current section for scroll-based sound
+        let currentSection = 'home';
+        const sections = ['home', 'experience', 'skills', 'education', 'certifications', 'contact'];
+
+        // Get element's true distance from top of document
+        function getOffsetTop(element) {
+            let offsetTop = 0;
+            while(element) {
+                offsetTop += element.offsetTop;
+                element = element.offsetParent;
+            }
+            return offsetTop;
+        }
+
+        // Play sound when entering a new section via scroll
+        function checkSectionChange() {
+            const scrollPosition = window.scrollY + 200; // 200px offset from top
+            
+            // If at the very top, always show Home as active
+            if (window.scrollY < 200) {
+                if (currentSection !== 'home') {
+                    currentSection = 'home';
+                    updateActiveLink('home');
+                }
+                return;
+            }
+            
+            // Find which section is currently in view (iterate backwards to find the last section we've passed)
+            let activeSection = 'home';
+            
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = document.getElementById(sections[i]);
+                if (section) {
+                    const sectionTop = getOffsetTop(section);
+                    
+                    if (scrollPosition >= sectionTop) {
+                        activeSection = sections[i];
+                        break;
+                    }
+                }
+            }
+            
+            if (currentSection !== activeSection) {
+                currentSection = activeSection;
+                playHoverSound();
+                updateActiveLink(currentSection);
+            }
+        }
+
+        window.addEventListener('scroll', checkSectionChange);
+        
+        // Scrollbar fade effect - fast fade in/out on scroll
+        let scrollTimeout;
+        function handleScrollbarFade() {
+            document.body.classList.add('is-scrolling');
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                document.body.classList.remove('is-scrolling');
+            }, 800); // Fade out after 800ms of no scrolling
+        }
+        window.addEventListener('scroll', handleScrollbarFade, { passive: true });
+        
+        // Set Home as active on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateActiveLink('home');
+        });
+
+        // Click sounds only
+        document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('button, a, .spotlight-card, .nav-link, [onclick]')) {
+                    playHoverSound();
+                }
+            });
+        });
+
+        // Download CV function - opens preview AND downloads
+        function downloadCV() {
+            const fileId = '1FqcNeHhpw27GrnbxJ38H5ZTrgXbqkZCZ';
+            const viewUrl = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
+            const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+            
+            // Open preview in new tab
+            window.open(viewUrl, '_blank');
+            
+            // Trigger download
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = 'Athanasios Tasiopoulos CV.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // 1. Smooth Scroll & Active Link
+        function scrollToSection(id) {
+            playHoverSound();
+            const element = document.getElementById(id);
+            if(element) {
+                // Calculate position with navbar offset (navbar height ~80px + some padding)
+                const navbarHeight = 100;
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - navbarHeight;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                closeMobileMenu();
+                updateActiveLink(id);
+            }
+        }
+
+        function updateActiveLink(id) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if(link.getAttribute('data-section') === id) {
+                    link.classList.add('text-white', 'bg-white/10', 'shadow-sm');
+                    link.classList.remove('text-gray-400');
+                } else {
+                    link.classList.remove('text-white', 'bg-white/10', 'shadow-sm');
+                    link.classList.add('text-gray-400');
+                }
+            });
+        }
+
+        // 2. Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.contains('pointer-events-none');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden', 'pointer-events-none', 'opacity-0');
+                mobileMenu.classList.add('flex', 'pointer-events-auto', 'opacity-100');
+            } else {
+                closeMobileMenu();
+            }
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('flex', 'pointer-events-auto', 'opacity-100');
+            mobileMenu.classList.add('hidden', 'pointer-events-none', 'opacity-0');
+        }
+
+        // 3. Spotlight Effect
+        document.querySelectorAll('.spotlight-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // 4. Typewriter Effect
+        const words = ['Compelling Dashboards', 'Curated Datasets', 'Data Pipelines'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeWriterElement = document.getElementById('typewriter');
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typeWriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeWriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500); // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(typeEffect, 500); // Pause before next word
+            } else {
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
+        }
+        typeEffect();
+
+        
+
+        // 7. Profile Photo Modal
+        function showProfilePhoto() {
+            const modal = document.getElementById('profilePhotoModal');
+            const container = document.getElementById('profilePhotoContainer');
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+            
+            setTimeout(() => {
+                container.classList.remove('scale-75', 'opacity-0');
+                container.classList.add('scale-100', 'opacity-100');
+            }, 50);
+            
+            // Auto hide after 2 seconds
+            setTimeout(() => {
+                hideProfilePhoto();
+            }, 2500);
+        }
+        
+        function hideProfilePhoto() {
+            const modal = document.getElementById('profilePhotoModal');
+            const container = document.getElementById('profilePhotoContainer');
+            
+            container.classList.remove('scale-100', 'opacity-100');
+            container.classList.add('scale-75', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }, 300);
+        }
+
+
+        // 9. Job Tab Switcher
+        function switchJob(index) {
+            // Hide all panels and reset all tabs
+            document.querySelectorAll('.job-panel').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+            document.querySelectorAll('.job-tab').forEach(tab => {
+                tab.classList.remove('text-blue-400', 'text-purple-400', 'bg-blue-500/5', 'bg-purple-500/5', 'border-blue-400', 'border-purple-400');
+                tab.classList.add('text-gray-400', 'border-transparent');
+            });
+            
+            // Show selected panel and highlight tab
+            const panel = document.getElementById(`job-panel-${index}`);
+            const tab = document.getElementById(`job-tab-${index}`);
+            
+            if (panel && tab) {
+                panel.classList.remove('hidden');
+                tab.classList.remove('text-gray-400', 'border-transparent');
+                
+                // Apply color based on job
+                if (index === 0) {
+                    tab.classList.add('text-blue-400', 'bg-blue-500/5', 'border-blue-400');
+                } else {
+                    tab.classList.add('text-purple-400', 'bg-purple-500/5', 'border-purple-400');
+                }
+                
+                // Re-initialize icons
+                lucide.createIcons();
+            }
+        }
+
+
+
+    </script>
 </body>
+    
 </html>
+
+
