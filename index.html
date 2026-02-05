@@ -914,7 +914,7 @@
                 
                 <!-- Left: Company Tabs -->
                 <div class="flex md:flex-col overflow-x-auto md:overflow-visible border-b md:border-b-0 md:border-l-2 border-gray-800 mb-6 md:mb-0 md:min-w-[200px]">
-                    <button onclick="switchJob(0)" id="job-tab-0" class="job-tab relative px-5 py-4 text-left font-mono text-sm whitespace-nowrap transition-all duration-300 text-blue-400 bg-blue-500/5 md:border-l-2 md:-ml-[2px] border-blue-400">
+                    <button onclick="switchJob(0)" id="job-tab-0" class="job-tab relative px-5 py-4 text-left font-mono text-sm whitespace-nowrap transition-all duration-300 text-purple-400 bg-purple-500/5 md:border-l-2 md:-ml-[2px] border-purple-400">
                         <span class="hidden md:inline">IKEA Supply AG</span>
                         <span class="md:hidden">IKEA Supply AG</span>
                     </button>
@@ -922,7 +922,7 @@
                         <span class="hidden md:inline">IKEA Supply AG</span>
                         <span class="md:hidden">IKEA Supply AG</span>
                     </button>
-                      <button onclick="switchJob(2)" id="job-tab-2" class="job-tab relative px-5 py-4 text-left font-mono text-sm whitespace-nowrap transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/5 md:border-l-2 md:-ml-[2px] border-transparent">
+                    <button onclick="switchJob(2)" id="job-tab-2" class="job-tab relative px-5 py-4 text-left font-mono text-sm whitespace-nowrap transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/5 md:border-l-2 md:-ml-[2px] border-transparent">
                         <span class="hidden md:inline">INTER IKEA Consultancy Services Greece SA</span>
                         <span class="md:hidden">INTER IKEA Consultancy Services Greece SA</span>
                     </button>
@@ -957,23 +957,23 @@
                         
                         <ul class="space-y-4 mb-8">
                             <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
-                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
                                 <span>Improved decision-making and compliance by designing data models that answered important questions for Global Customs.</span>
                             </li>
                             <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
-                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
                                 <span>Introduced a free trade agreement strategy, reducing costs and streamlining international trade processes.</span>
                             </li>
                             <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
-                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
                                 <span>Led various agile projects as project owner and contributed in various systems implementation projects with business requirements and impact analysis.</span>
                             </li>
                             <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
-                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
                                 <span>Created complex reporting solutions and tools to improve processes and support audits from Customs and Tax authorities.</span>
                             </li>
                             <li class="flex gap-3 items-start text-gray-300 leading-relaxed">
-                                <i data-lucide="chevron-right" class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5"></i>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"></i>
                                 <span>Led the business capability mapping for global customs, identifying critical connections with processes and systems.</span>
                             </li>
                             
@@ -1858,13 +1858,8 @@
             if (panel && tab) {
                 panel.classList.remove('hidden');
                 tab.classList.remove('text-gray-400', 'border-transparent');
+                tab.classList.add('text-purple-400', 'bg-purple-500/5', 'border-purple-400');
                 
-                // Apply color based on job
-                if (index === 0) {
-                    tab.classList.add('text-blue-400', 'bg-blue-500/5', 'border-blue-400');
-                } else {
-                    tab.classList.add('text-purple-400', 'bg-purple-500/5', 'border-purple-400');
-                }
                 
                 // Re-initialize icons
                 lucide.createIcons();
